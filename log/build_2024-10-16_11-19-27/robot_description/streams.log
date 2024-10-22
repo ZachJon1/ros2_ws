@@ -1,0 +1,22 @@
+[0.824s] Invoking command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/robot_description': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_description build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log --single-version-externally-managed install_data
+[1.004s] running egg_info
+[1.017s] writing ../../build/robot_description/robot_description.egg-info/PKG-INFO
+[1.017s] writing dependency_links to ../../build/robot_description/robot_description.egg-info/dependency_links.txt
+[1.017s] writing entry points to ../../build/robot_description/robot_description.egg-info/entry_points.txt
+[1.017s] writing requirements to ../../build/robot_description/robot_description.egg-info/requires.txt
+[1.017s] writing top-level names to ../../build/robot_description/robot_description.egg-info/top_level.txt
+[1.045s] reading manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[1.046s] writing manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[1.046s] running build
+[1.046s] running build_py
+[1.046s] running install
+[1.050s] running install_lib
+[1.064s] running install_data
+[1.065s] running install_egg_info
+[1.079s] removing '/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info' (and everything under it)
+[1.080s] Copying ../../build/robot_description/robot_description.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info
+[1.080s] running install_scripts
+[1.171s] Installing camera_subscriber script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+[1.171s] Installing obstacle_avoidance script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+[1.171s] writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log'
+[1.188s] Invoked command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/robot_description' returned '0': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_description build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log --single-version-externally-managed install_data

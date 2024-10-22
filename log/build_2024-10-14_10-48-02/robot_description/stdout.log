@@ -1,0 +1,136 @@
+running egg_info
+creating ../../build/robot_description/robot_description.egg-info
+writing ../../build/robot_description/robot_description.egg-info/PKG-INFO
+writing dependency_links to ../../build/robot_description/robot_description.egg-info/dependency_links.txt
+writing entry points to ../../build/robot_description/robot_description.egg-info/entry_points.txt
+writing requirements to ../../build/robot_description/robot_description.egg-info/requires.txt
+writing top-level names to ../../build/robot_description/robot_description.egg-info/top_level.txt
+writing manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+reading manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+writing manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build
+creating /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib
+creating /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description
+copying robot_description/__init__.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description
+copying robot_description/obstacle_avoidance.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description
+running install
+running install_lib
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description
+copying /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description/__init__.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description
+copying /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description/obstacle_avoidance.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description
+byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/obstacle_avoidance.py to obstacle_avoidance.cpython-312.pyc
+running install_data
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index/resource_index
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index/resource_index/packages
+copying resource/robot_description -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index/resource_index/packages
+copying package.xml -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf
+copying urdf/robot.urdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf
+copying urdf/robot.xacro -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf
+copying urdf/robot.gazebo -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/rviz
+copying rviz/config.rviz -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/rviz
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes
+copying meshes/chassis.stl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes
+copying meshes/wheel.stl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/worlds
+copying worlds/project_world.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/worlds
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch
+copying launch/rviz.launch.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch
+copying launch/empty_world.launch.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch
+copying launch/project.launch.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch
+copying launch/spawn.launch.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair
+copying models/Chair/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair
+copying models/Chair/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+copying models/Chair/meshes/Chair_Normal.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+copying models/Chair/meshes/Chair_Diffuse.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+copying models/Chair/meshes/Chair_SpecGloss.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+copying models/Chair/meshes/Chair.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+copying models/Chair/meshes/Chair.mtl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+copying models/Chair/meshes/Chair.obj -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/thumbnails
+copying models/Chair/thumbnails/4.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/thumbnails
+copying models/Chair/thumbnails/3.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/thumbnails
+copying models/Chair/thumbnails/5.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/thumbnails
+copying models/Chair/thumbnails/1.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/thumbnails
+copying models/Chair/thumbnails/2.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Chair/thumbnails
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/ChildVisitor
+copying models/ChildVisitor/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/ChildVisitor
+copying models/ChildVisitor/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/ChildVisitor
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/ChildVisitor/meshes
+copying models/ChildVisitor/meshes/VisitorKidWalk.dae -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/ChildVisitor/meshes
+copying models/ChildVisitor/meshes/VisitorKid.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/ChildVisitor/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk
+copying models/Desk/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk
+copying models/Desk/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/meshes
+copying models/Desk/meshes/Desk_Diffuse.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/meshes
+copying models/Desk/meshes/desk.mtl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/meshes
+copying models/Desk/meshes/desk.obj -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/thumbnails
+copying models/Desk/thumbnails/4.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/thumbnails
+copying models/Desk/thumbnails/3.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/thumbnails
+copying models/Desk/thumbnails/5.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/thumbnails
+copying models/Desk/thumbnails/1.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/thumbnails
+copying models/Desk/thumbnails/2.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Desk/thumbnails
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor
+copying models/FemaleVisitor/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor
+copying models/FemaleVisitor/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor/meshes
+copying models/FemaleVisitor/meshes/FemaleVisitor.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor/meshes
+copying models/FemaleVisitor/meshes/FemaleVisitorWalk.dae -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor/meshes
+copying models/FemaleVisitor/meshes/Handbag.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/FemaleVisitor/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor
+copying models/MaleVisitor/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor
+copying models/MaleVisitor/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/materials
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/materials/textures
+copying models/MaleVisitor/materials/textures/MaleVisitor.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/materials/textures
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/meshes
+copying models/MaleVisitor/meshes/MaleVisitorWalk.dae -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/thumbnails
+copying models/MaleVisitor/thumbnails/1.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/thumbnails
+copying models/MaleVisitor/thumbnails/2.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/MaleVisitor/thumbnails
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa
+copying models/Sofa/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa
+copying models/Sofa/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/meshes
+copying models/Sofa/meshes/Sofa.obj -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/meshes
+copying models/Sofa/meshes/Sofa.mtl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/meshes
+copying models/Sofa/meshes/SofaDiffuse.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/thumbnails
+copying models/Sofa/thumbnails/4.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/thumbnails
+copying models/Sofa/thumbnails/3.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/thumbnails
+copying models/Sofa/thumbnails/5.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/thumbnails
+copying models/Sofa/thumbnails/1.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/thumbnails
+copying models/Sofa/thumbnails/2.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Sofa/thumbnails
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand
+copying models/TVStand/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand
+copying models/TVStand/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/meshes
+copying models/TVStand/meshes/TVStand_Col.obj -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/meshes
+copying models/TVStand/meshes/TVStand.mtl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/meshes
+copying models/TVStand/meshes/TVStand_Diffuse.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/meshes
+copying models/TVStand/meshes/TVStand_Col.mtl -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/meshes
+copying models/TVStand/meshes/TVStand.obj -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/meshes
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/thumbnails
+copying models/TVStand/thumbnails/4.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/thumbnails
+copying models/TVStand/thumbnails/3.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/thumbnails
+copying models/TVStand/thumbnails/5.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/thumbnails
+copying models/TVStand/thumbnails/1.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/thumbnails
+copying models/TVStand/thumbnails/2.png -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/TVStand/thumbnails
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Wall
+copying models/Wall/model.config -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Wall
+copying models/Wall/model.sdf -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Wall
+running install_egg_info
+Copying ../../build/robot_description/robot_description.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info
+running install_scripts
+Installing obstacle_avoidance script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log'

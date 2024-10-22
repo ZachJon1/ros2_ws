@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  ros2_humble_gazebo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ros2_humble_gazebo_harmonic
+    network_mode: "host"
+    environment:
+      DISPLAY: ${DISPLAY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./ros2_humble_ws:/ros2_humble_ws/src

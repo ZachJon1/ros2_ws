@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+
+<robot name="robot">
+
+    <!-- Materials -->
+    <gazebo reference="link_chassis">
+        <visual>
+            <material> <!-- Gold -->
+                <ambient>1.0 0.7 0.0 1.0</ambient>
+                <diffuse>1.0 0.7 0.0 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="link_left_caster_wheel">
+        <visual>
+            <material> <!-- Gray -->
+                <ambient>0.25 0.25 0.25 1.0</ambient>
+                <diffuse>0.25 0.25 0.25 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.0</mu>
+                        <mu2>0.0</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+    <gazebo reference="link_right_caster_wheel">
+        <visual>
+            <material> <!-- Gray -->
+                <ambient>0.25 0.25 0.25 1.0</ambient>
+                <diffuse>0.25 0.25 0.25 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.0</mu>
+                        <mu2>0.0</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+    <gazebo reference="link_left_wheel">
+        <visual>
+            <material> <!-- Black -->
+                <ambient>0.1 0.1 0.1 1.0</ambient>
+                <diffuse>0.1 0.1 0.1 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1.0</mu>
+                        <mu2>1.0</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+    <gazebo reference="link_right_wheel">
+        <visual>
+            <material> <!-- Black -->
+                <ambient>0.1 0.1 0.1 1.0</ambient>
+                <diffuse>0.1 0.1 0.1 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+        <collision>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1.0</mu>
+                        <mu2>1.0</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </gazebo>
+    <gazebo reference="link_laser_scan">
+        <visual>
+            <material> <!-- Red -->
+                <ambient>1.0 0.0 0.0 1.0</ambient>
+                <diffuse>1.0 0.0 0.0 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+    </gazebo>
+
+    <gazebo reference="joint_chassis_left_caster_wheel">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <gazebo reference="joint_chassis_right_caster_wheel">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <gazebo reference="joint_chassis_laser_scan">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <!-- Differential Drive Plugin -->
+    <gazebo>
+        <plugin 
+            filename="libignition-gazebo-diff-drive-system.so"
+            name="ignition::gazebo::systems::DiffDrive">
+            <left_joint>joint_chassis_left_wheel</left_joint>
+            <right_joint>joint_chassis_right_wheel</right_joint>
+            <wheel_separation>0.315</wheel_separation>
+            <wheel_radius>0.03</wheel_radius>
+            <odom_publish_frequency>10</odom_publish_frequency>
+            <topic>cmd_vel</topic>
+            <odom_topic>odom</odom_topic>
+            <tf_topic>tf</tf_topic>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_link</child_frame_id>
+        </plugin>
+    </gazebo>
+
+    <!-- Laser Scanner Plugin -->
+    <gazebo>
+        <plugin
+            filename="libignition-gazebo-sensors-system.so"
+            name="ignition::gazebo::systems::Sensors">
+            <render_engine>ogre</render_engine> <!-- use ogre2 if ogre v2.x is installed -->
+        </plugin>
+    </gazebo>
+    <gazebo reference="link_laser_scan">
+        <sensor type="gpu_lidar" name="head_hokuyo_sensor">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <topic>/scan</topic>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>180</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-1.570796</min_angle>
+                        <max_angle>1.570796</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.08</min>
+                    <max>5.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+        </sensor>
+    </gazebo>
+
+    <!-- IMU Plugin -->
+    <gazebo>
+        <plugin
+            filename="libignition-gazebo-imu-system.so"
+            name="ignition::gazebo::systems::Imu">
+        </plugin>
+    </gazebo>
+    <gazebo reference="link_chassis">
+        <sensor name="imu_sensor" type="imu">
+            <always_on>1</always_on>
+            <update_rate>10</update_rate>
+            <visualize>true</visualize>
+            <topic>imu</topic>
+        </sensor>
+    </gazebo>
+
+</robot>
