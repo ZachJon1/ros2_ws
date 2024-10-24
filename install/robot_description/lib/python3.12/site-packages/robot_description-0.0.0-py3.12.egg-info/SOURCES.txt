@@ -111,6 +111,7 @@ models/marker4/materials/textures/Marker4.png
 models/marker4/meshes/Marker4.dae
 resource/robot_description
 robot_description/__init__.py
+robot_description/aruco_detection_pose_estimation.py
 robot_description/camera_subscriber.py
 robot_description/obstacle_avoidance.py
 rviz/config.rviz

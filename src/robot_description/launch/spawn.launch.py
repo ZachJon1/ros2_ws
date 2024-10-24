@@ -75,12 +75,20 @@ def generate_launch_description():
     
     # Subscriber Node
     
-    camera_subscriber = Node(
+    # camera_subscriber = Node(
+    #     package="robot_description",
+    #     executable="camera_subscriber",
+    #     name="camera_subscriber",
+    #     output="screen",
+    #     emulate_tty=True,
+    # )
+    
+    aruco_node = Node(
         package="robot_description",
-        executable="camera_subscriber",
-        name="camera_subscriber",
+        executable="aruco_detection_pose_estimation",
+        name="aruco_detection_pose_estimation",
         output="screen",
-        emulate_tty=True,
+        emulate_tty=True
     )
 
     # Create and Return the Launch Description Object #
@@ -95,6 +103,7 @@ def generate_launch_description():
             declare_spawn_z,
             gz_spawn_entity,
             ign_bridge,
-            camera_subscriber,
+            # camera_subscriber,
+            aruco_node
         ]
     )

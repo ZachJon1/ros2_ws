@@ -1,1 +1,1 @@
-geometry_msgs:nav_msgs:rclpy:sensor_msgs:std_msgs:urdf:xacro
+cv2:geometry_msgs:nav_msgs:numpy:rclpy:scipy:sensor_msgs:std_msgs:tf2_ros:urdf:xacro

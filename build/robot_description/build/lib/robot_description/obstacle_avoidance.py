@@ -186,29 +186,28 @@ def main(args=None):
         # initialize node
         obstacle_avoidance_node = ObstacleAvoidance()
         # initialize executor
-        executor = MultiThreadedExecutor(num_threads=4)
+        executor = MultiThreadedExecutor(num_threads=6)
         # add node to executor
         executor.add_node(obstacle_avoidance_node)
         try:
             # spin the executor
             executor.spin()
-        except:
-            pass
+        except Exception as e:
+            obstacle_avoidance_node.get_logger().error(f"Exception on executor spin: {e}")
         finally:
             # shutdown executor
             executor.shutdown()
             # destroy node
             obstacle_avoidance_node.get_logger().info("Terminating Obstacle Avoidance...")
             obstacle_avoidance_node.destroy_node()
-    except:
-        pass
+    except Exception as e:
+        print(f"Exception in main: {e}")
     finally:
         # shutdown ROS2 communication
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
     return None
 
 if __name__ == "__main__":
     main()
-
-# End of Code

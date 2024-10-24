@@ -1,7 +1,9 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__init__.py
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/aruco_detection_pose_estimation.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/camera_subscriber.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/obstacle_avoidance.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/__init__.cpython-312.pyc
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/aruco_detection_pose_estimation.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/camera_subscriber.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/obstacle_avoidance.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
@@ -119,5 +121,6 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info/PKG-INFO
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info/requires.txt
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info/dependency_links.txt
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description/aruco_detection_pose_estimation
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description/camera_subscriber
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description/obstacle_avoidance

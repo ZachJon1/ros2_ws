@@ -36,6 +36,7 @@ setup(
         'console_scripts': [
             'obstacle_avoidance = robot_description.obstacle_avoidance:main',
             'camera_subscriber = robot_description.camera_subscriber:main',
+            'aruco_detection_pose_estimation = robot_description.aruco_detection_pose_estimation:main'
         ],
     },
 )

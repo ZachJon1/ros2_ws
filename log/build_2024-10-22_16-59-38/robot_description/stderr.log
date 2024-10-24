@@ -1,0 +1,5 @@
+  File "/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/aruco_detection_pose_estimation.py", line 69
+    frame_id='camera_link',
+    ^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: keyword argument repeated: frame_id
+
