@@ -1,0 +1,27 @@
+[0.558s] Invoking command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/robot_description': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_description build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log --single-version-externally-managed install_data
+[0.743s] running egg_info
+[0.757s] writing ../../build/robot_description/robot_description.egg-info/PKG-INFO
+[0.757s] writing dependency_links to ../../build/robot_description/robot_description.egg-info/dependency_links.txt
+[0.757s] writing entry points to ../../build/robot_description/robot_description.egg-info/entry_points.txt
+[0.757s] writing requirements to ../../build/robot_description/robot_description.egg-info/requires.txt
+[0.757s] writing top-level names to ../../build/robot_description/robot_description.egg-info/top_level.txt
+[0.786s] reading manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.788s] writing manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.788s] running build
+[0.788s] running build_py
+[0.788s] copying robot_description/mape_loop.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description
+[0.788s] running install
+[0.793s] running install_lib
+[0.808s] copying /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build/lib/robot_description/mape_loop.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description
+[0.808s] byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/mape_loop.py to mape_loop.cpython-312.pyc
+[0.810s] running install_data
+[0.812s] running install_egg_info
+[0.827s] removing '/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info' (and everything under it)
+[0.827s] Copying ../../build/robot_description/robot_description.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description-0.0.0-py3.12.egg-info
+[0.828s] running install_scripts
+[0.921s] Installing aruco_detection_pose_estimation script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+[0.921s] Installing camera_subscriber script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+[0.921s] Installing mape_loop script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+[0.921s] Installing obstacle_avoidance script to /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/robot_description
+[0.921s] writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log'
+[0.938s] Invoked command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/robot_description' returned '0': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_description build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/robot_description/install.log --single-version-externally-managed install_data

@@ -34,9 +34,18 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'obstacle_avoidance = robot_description.obstacle_avoidance:main',
-            'camera_subscriber = robot_description.camera_subscriber:main',
-            'aruco_detection_pose_estimation = robot_description.aruco_detection_pose_estimation:main'
+            # 'obstacle_avoidance = robot_description.obstacle_avoidance:main',
+            # 'camera_subscriber = robot_description.camera_subscriber:main',
+            # 'aruco_detection_pose_estimation = robot_description.aruco_detection_pose_estimation:main',
+            'vision_node = robot_description.vision_node:main',
+            'monitor_node = robot_description.monitor_node:main',
+            'analyze_node = robot_description.analyze_node:main',
+            'plan_node = robot_description.plan_node:main',
+            'execute_node = robot_description.execute_node:main',
+            'monitor_new_node = robot_description.monitor_new_node:main',
+            'analyze_new_node = robot_description.analyze_new_node:main',
+            'plan_new_node = robot_description.plan_new_node:main',
+            'execute_new_node = robot_description.execute_new_node:main',
         ],
     },
 )
