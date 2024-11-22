@@ -11,6 +11,7 @@ from cv2 import aruco
 import math
 from dataclasses import dataclass
 from typing import List, Tuple, Dict
+from rclpy.qos import qos_profile_sensor_data
 
 
 ARUCO_DICT = {
@@ -46,7 +47,8 @@ class RobotController(Node):
         self.cmd_vel_pub = self.create_publisher(Twist, 'cmd_vel', 10)
         
         # Subscribers
-        self.create_subscription(Image, '/camera', self.monitor_callback, 10)
+        self.create_subscription(Image, '/camera', self.monitor_callback,
+                                 qos_profile=qos_profile_sensor_data)
         
         # Timer for control loop
         self.create_timer(0.1, self.control_loop)
@@ -142,25 +144,25 @@ class RobotController(Node):
         cmd_vel = Twist()
         
         # If close to goal, mark as achieved
-        if distance < 20:  # Threshold in pixels
+        if distance < 50:  
             target_goal.achieved = True
             self.stop_robot()
             self.get_logger().info(f'Goal {target_goal.id} achieved!')
             return
             
         # Basic proportional control
-        if abs(angle_diff) > 5:
+        if abs(angle_diff) > 10:
             # Rotate to face goal
             cmd_vel.angular.z = 0.3 if angle_diff > 0 else -0.3
         else:
             # Move towards goal
-            cmd_vel.linear.x = min(0.2, distance * 0.05)
+            cmd_vel.linear.x = min(0.2, distance * 0.03)
             cmd_vel.angular.z = angle_diff
             
         self.cmd_vel_pub.publish(cmd_vel)
 
     def stop_robot(self):
-        """Helper function to stop robot movement"""
+       
         cmd_vel = Twist()
         cmd_vel.linear.x = 0.0
         cmd_vel.angular.z = 0.0
@@ -168,7 +170,7 @@ class RobotController(Node):
 
     @staticmethod
     def normalize_angle(angle):
-        """Helper function to normalize angle to [-pi, pi]"""
+        
         while angle > math.pi:
             angle -= 2 * math.pi
         while angle < -math.pi:
@@ -179,7 +181,7 @@ def main():
     rclpy.init()
     controller = RobotController()
     
-    executor = MultiThreadedExecutor(num_threads=3)
+    executor = MultiThreadedExecutor(num_threads=5)
     executor.add_node(controller)
     
     try:
