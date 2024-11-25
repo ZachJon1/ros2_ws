@@ -15,9 +15,7 @@ from rclpy.qos import qos_profile_sensor_data
 
 
 ARUCO_DICT = {
-    "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL,
-    "DICT_5X5_1000": cv2.aruco.DICT_5X5_1000,
-    "DICT_6X6_50": cv2.aruco.DICT_6X6_50,
+    "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL
 }
 @dataclass
 class Goal:
@@ -54,7 +52,7 @@ class RobotController(Node):
         self.create_timer(0.1, self.control_loop)
 
     def monitor_callback(self, msg):
-        """MONITOR phase: Process camera feed and detect markers"""
+        """Monitor: Process camera feed and detect markers"""
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
             corners, ids, _ = aruco.detectMarkers(cv_image, self.aruco_dict)
@@ -69,7 +67,7 @@ class RobotController(Node):
             self.get_logger().error(f'Error in monitor_callback: {str(e)}')
 
     def analyze_markers(self, corners, ids):
-        """ANALYZE phase: Process marker information"""
+        """Analyze: Process marker information"""
         try:
             for i, marker_id in enumerate(ids):
                 marker_corners = corners[i][0]
@@ -100,7 +98,7 @@ class RobotController(Node):
             self.get_logger().error(f'Error in analyze_markers: {str(e)}')
 
     def plan_path(self) -> Goal:
-        """PLAN phase: Determine next goal"""
+        """Plan: Determine next goal"""
         if not self.robot_position or not self.goals:
             return None
             
@@ -120,7 +118,7 @@ class RobotController(Node):
         return closest_goal
 
     def control_loop(self):
-        """EXECUTE phase: Control robot movement"""
+        """Execute: Control robot movement"""
         if not self.robot_position or not self.robot_orientation:
             return
             
@@ -143,7 +141,7 @@ class RobotController(Node):
         # Create and publish velocity command
         cmd_vel = Twist()
         
-        # If close to goal, mark as achieved
+        # dist to goal, mark as achieved
         if distance < 50:  
             target_goal.achieved = True
             self.stop_robot()
@@ -156,7 +154,7 @@ class RobotController(Node):
             cmd_vel.angular.z = 0.3 if angle_diff > 0 else -0.3
         else:
             # Move towards goal
-            cmd_vel.linear.x = min(0.2, distance * 0.03)
+            cmd_vel.linear.x = min(0.2, distance * 0.01)
             cmd_vel.angular.z = angle_diff
             
         self.cmd_vel_pub.publish(cmd_vel)

@@ -263,17 +263,17 @@
             <pose>2.5 2.0 0 0 0 0.00000</pose>
         </include>
 
-        <include>
+        <!-- <include>
             <uri>model://Desk</uri>
             <name>desk</name>
             <pose>-2.5 1.0 0 0 0 -1.57079</pose>
-        </include>
+        </include> -->
 
-        <include>
+        <!-- <include>
             <uri>model://Chair</uri>
             <name>chair</name>
             <pose>-2.5 -1.0 0 0 0 1.57079</pose>
-        </include> 
+        </include>  -->
         <include>
             <uri>model://Camera</uri>
          </include>   
@@ -311,7 +311,7 @@
         <include>
             <uri>model://marker1</uri>
             <static>true</static>
-            <pose>-1.0 0.60 0.0 0 -1.57 1.57</pose>
+            <pose>-0.97 0.60 0.0 0 -1.57 1.57</pose>
         </include>
         <include>
             <uri>model://marker2</uri>
@@ -326,12 +326,12 @@
         <include>
             <uri>model://marker4</uri>
             <static>true</static>
-            <pose>-3.51 -0.5 0.0 0 -1.57 1.57</pose>
+            <pose>-1.98 -0.5 0.0 0 -1.57 1.57</pose>
         </include>
                 <include>
             <uri>model://marker5</uri>
             <static>true</static>
-            <pose>-1.0 -1.60 0.0 0 -1.57 1.57</pose>
+            <pose>-1.0 1.60 0.0 0 -1.57 1.57</pose>
         </include>
         <include>
             <uri>model://marker6</uri>
@@ -346,12 +346,12 @@
                 <include>
             <uri>model://marker8</uri>
             <static>true</static>
-            <pose>-2.59 -2.44 0.0 0 -1.57 1.57</pose>
+            <pose>-0.43 -1.20 0.0 0 -1.57 1.57</pose>
         </include>
                 <include>
             <uri>model://marker9</uri>
             <static>true</static>
-            <pose>-1.61 -1.08 0.0 0 -1.57 1.57</pose>
+            <pose>-0.61 -1.08 0.0 0 -1.57 1.57</pose>
         </include>
                 <include>
             <uri>model://marker10</uri>
