@@ -47,7 +47,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             declare_world_arg,
-            # Sets use_sim_time for all nodes started below (doesn't work for nodes started from ignition gazebo) #
+            # Sets use_sim_time for all nodes started below 
             SetParameter(name="use_sim_time", value=True),
             gz_sim,
         ]
