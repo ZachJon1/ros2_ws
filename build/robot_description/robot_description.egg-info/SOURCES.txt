@@ -12,6 +12,7 @@ launch/empty_world.launch.py
 launch/mape.launch.py
 launch/mape_new.launch.py
 launch/mape_node.launch.py
+launch/mape_node_2.launch.py
 launch/mape_v3.launch.py
 launch/project.launch.py
 launch/project_world.launch.py
@@ -224,7 +225,11 @@ test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
 urdf/marker.xacro
+urdf/marker_2.xacro
+urdf/robot _2.xacro
 urdf/robot.gazebo
 urdf/robot.urdf
 urdf/robot.xacro
+urdf/robot_2.gazebo
+urdf/robot_2.urdf
 worlds/project_world.sdf

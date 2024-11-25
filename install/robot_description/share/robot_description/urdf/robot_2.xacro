@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find robot_description)/urdf/robot_2.gazebo" />
+    <xacro:include filename="$(find robot_description)/urdf/marker_2.xacro" />
+
+    <!-- Link - base_link -->
+    <link name="base_link"></link>
+    
+    <!-- place marker on robot-->
+    <xacro:marker prefix="marker13" parent="link_chassis">
+        <origin xyz="0 0 0.07" rpy= "0 0 0"/>
+    </xacro:marker>
+
+
+<!-- Joint - base_link/chassis -->
+    <joint name="joint_base_link_chassis" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <child link="link_chassis" />
+        <parent link="base_link" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- Link - chassis -->
+    <link name="link_chassis">
+        <inertial>
+            <mass value="10" />
+            <origin xyz="0 0 0.0625" rpy="0 0 0" />
+            <inertia ixx="0.2604" ixy="0" ixz="0" iyy="0.2604" iyz="0" izz="0.3125" />
+        </inertial>
+
+        <collision>
+            <geometry>
+                <cylinder length="0.125" radius="0.25" />
+            </geometry>
+        </collision>
+
+        <visual>
+            <geometry>
+                <cylinder length="0.125" radius="0.25" />
+            </geometry>
+            <material name="GoldenYellow">
+                <color rgba="1.0 0.7 0.0 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint - chassis/left_caster_wheel -->
+    <joint name="joint_chassis_left_caster_wheel" type="fixed">
+        <origin rpy="0 0 0" xyz="0.15 0.15 -0.0625" />
+        <child link="link_left_caster_wheel" />
+        <parent link="link_chassis" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+    
+    <!-- Link - left_caster_wheel -->
+    <link name="link_left_caster_wheel">
+        <inertial>
+            <mass value="0.5" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.00008" ixy="0" ixz="0" iyy="0.00008" iyz="0" izz="0.00008"/>
+        </inertial>
+
+        <!-- caster wheel support -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0.1 0.1 0.1 1.0" />
+            </material>
+        </visual>
+
+        <!-- caster wheel -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 -0.015" />
+            <geometry>
+                <sphere radius="0.01" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.015" />
+            <geometry>
+                <sphere radius="0.01" />
+            </geometry>
+            <material name="White">
+                <color rgba="1.0 1.0 1.0 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint - chassis/right_caster_wheel -->
+    <joint name="joint_chassis_right_caster_wheel" type="fixed">
+        <origin rpy="0 0 0" xyz="0.15 -0.15 -0.0625" />
+        <child link="link_right_caster_wheel" />
+        <parent link="link_chassis" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+    
+    <!-- Link - right_caster_wheel -->
+    <link name="link_right_caster_wheel">
+        <inertial>
+            <mass value="0.5" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.00008" ixy="0" ixz="0" iyy="0.00008" iyz="0" izz="0.00008"/>
+        </inertial>
+
+        <!-- caster wheel support -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0.1 0.1 0.1 1.0" />
+            </material>
+        </visual>
+
+        <!-- caster wheel -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 -0.015" />
+            <geometry>
+                <sphere radius="0.01" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.015" />
+            <geometry>
+                <sphere radius="0.01" />
+            </geometry>
+            <material name="White">
+                <color rgba="1.0 1.0 1.0 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint - chassis/left_wheel -->
+    <joint name="joint_chassis_left_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="-0.125 0.15 -0.0625" />
+        <child link="link_left_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+    
+    <!-- Link - left_wheel -->
+    <link name="link_left_wheel">
+        <inertial>
+            <mass value="1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.001475" ixy="0" ixz="0" iyy="0.001475" iyz="0" izz="0.00045"/>
+        </inertial>
+
+        <!-- tires -->
+        <collision>
+            <origin rpy="1.57079 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.015" radius="0.03"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="1.57079 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.015" radius="0.03"/>
+            </geometry>
+            <material name="Black">
+                <color rgba="0.1 0.1 0.1 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint - chassis/right_wheel -->
+    <joint name="joint_chassis_right_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="-0.125 -0.15 -0.0625" />
+        <child link="link_right_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+    
+    <!-- Link - right_wheel -->
+    <link name="link_right_wheel">
+        <inertial>
+            <mass value="1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.001475" ixy="0" ixz="0" iyy="0.001475" iyz="0" izz="0.00045"/>
+        </inertial>
+
+        <!-- tires -->
+        <collision>
+            <origin rpy="1.57079 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.015" radius="0.03"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="1.57079 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.015" radius="0.03"/>
+            </geometry>
+            <material name="Black">
+                <color rgba="0.1 0.1 0.1 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint - chassis/laser_scan -->
+    <joint name="joint_chassis_laser_scan" type="fixed">
+        <origin rpy="0 0 0" xyz="0.2 0 0.075" />
+        <child link="link_laser_scan" />
+        <parent link="link_chassis" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- Link - laser_scan -->
+    <link name="link_laser_scan">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.5" />
+            <inertia ixx="0.00135416666666667" ixy="0" ixz="0" iyy="0.00135416666666667" iyz="0" izz="0.000625"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.05" length="0.025"/>
+            </geometry>
+            <material name="Red">
+                <color rgba="0.7 0.1 0.1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.025"/>
+            </geometry>
+        </collision>
+    </link>
+
+</robot>

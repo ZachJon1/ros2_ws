@@ -29,7 +29,7 @@ def generate_launch_description():
     )
 
     # Spawn the Robot #
-    declare_spawn_model_name = DeclareLaunchArgument("model_name", default_value="my_robot",
+    declare_spawn_model_name = DeclareLaunchArgument("model_name", default_value="robot_1",
                                                      description="Model Spawn Name")
     declare_spawn_x = DeclareLaunchArgument("x", default_value="-3.0",
                                             description="Model Spawn X Axis Value")

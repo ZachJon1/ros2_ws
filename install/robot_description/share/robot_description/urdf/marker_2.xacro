@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="marker_size" value="0.07"/>
+  
+  <xacro:macro name="marker" params="prefix parent *origin">
+    <!-- ArUco marker link -->
+    <link name="${prefix}_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 1.57 0"/>
+        <xacro:insert_block name="origin"/>
+        <geometry>
+          <mesh filename="model://marker13/meshes/Marker13.dae" scale ="0.2 0.2 0.2"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="${marker_size} ${marker_size} 0.001"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.01"/>
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
+                 iyy="0.0001" iyz="0.0" 
+                 izz="0.0001"/>
+      </inertial>
+      </link>
+
+    <!-- Joint to attach marker -->
+    <joint name="${prefix}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+  </xacro:macro>
+</robot>

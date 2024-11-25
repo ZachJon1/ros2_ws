@@ -43,9 +43,13 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/package.xml
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot.urdf
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/marker_2.xacro
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot.xacro
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot.gazebo
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot_2.gazebo
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/marker.xacro
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot _2.xacro
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot_2.urdf
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/rviz/config.rviz
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes/chassis.stl
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes/wheel.stl
@@ -54,6 +58,7 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape_node.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/rviz.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/project_world.launch.py
+/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape_node_2.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/empty_world.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/project.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape.launch.py
