@@ -10,9 +10,7 @@ setup.py
 ../../build/robot_description/robot_description.egg-info/zip-safe
 launch/empty_world.launch.py
 launch/mape.launch.py
-launch/mape_new.launch.py
 launch/mape_node.launch.py
-launch/mape_node_multi_robot.launch.py
 launch/mape_v3.launch.py
 launch/project.launch.py
 launch/project_world.launch.py
@@ -216,7 +214,6 @@ robot_description/monitor_new_node.py
 robot_description/monitor_node.py
 robot_description/monitor_node_v3.py
 robot_description/multi_robot_control.py
-robot_description/obstacle_avoidance.py
 robot_description/plan_new_node.py
 robot_description/plan_node.py
 robot_description/plan_node_v3.py

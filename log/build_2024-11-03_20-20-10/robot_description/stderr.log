@@ -1,5 +1,0 @@
-  File "/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/mape_loop.py", line 322
-    Float32MultiArray,,
-                      ^
-SyntaxError: invalid syntax
-

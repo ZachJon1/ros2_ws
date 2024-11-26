@@ -421,7 +421,6 @@
             filename="libignition-gazebo-imu-system.so"
             name="ignition::gazebo::systems::Imu">
         </plugin>
-        <!-- <robotNamespace>/robot</robotNamespace> -->
     </gazebo>
     <gazebo reference="link_chassis">
         <sensor name="imu_sensor" type="imu">

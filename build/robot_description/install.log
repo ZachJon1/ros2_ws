@@ -19,7 +19,6 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/analyze_node_v3.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/multi_robot_control.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/plan_node.py
-/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/obstacle_avoidance.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/vision_node.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/mape.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/execute_node_v3.cpython-312.pyc
@@ -41,7 +40,6 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/analyze_node_v3.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/multi_robot_control.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/plan_node.cpython-312.pyc
-/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/__pycache__/obstacle_avoidance.cpython-312.pyc
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/package.xml
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/urdf/robot.urdf
@@ -52,14 +50,12 @@
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes/chassis.stl
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/meshes/wheel.stl
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/worlds/project_world.sdf
-/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape_new.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape_node.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/rviz.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/project_world.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/empty_world.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/project.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape.launch.py
-/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape_node_multi_robot.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/spawn.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/launch/mape_v3.launch.py
 /home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/share/robot_description/models/Camera/model.config
