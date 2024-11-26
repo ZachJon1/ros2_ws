@@ -10,5 +10,5 @@ colcon build
 source install/setup.bash
 
 # Launch the project
-#ros2 launch robot_description project.launch.py
-ros2 launch robot_description project_world.launch.py
+ros2 launch robot_description project.launch.py
+# ros2 launch robot_description project_world.launch.py
