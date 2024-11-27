@@ -9,28 +9,25 @@ import cv2
 import numpy as np
 from cv2 import aruco
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Tuple, Dict
 from rclpy.qos import qos_profile_sensor_data
 from rclpy.qos import QoSProfile, ReliabilityPolicy
-
 
 ARUCO_DICT = {
     "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL
 }
 
-# Dataclass for goal information
 @dataclass
 class Goal:
     goal_id: int
     position: Tuple[float, float]
     achieved: bool = False
-    
+
 @dataclass
 class RobotState:
     position: Tuple[float, float] = None
     orientation: float = None
-    current_goal: Goal = None
 
 class RobotController(Node):
     def __init__(self):
@@ -39,13 +36,19 @@ class RobotController(Node):
         # Initialize variables
         self.bridge = CvBridge()
         self.robot_marker_id = 12
-        self.goals: List[Goal] = []
+        
+        # Goal Management
+        self.all_goals: List[Goal] = []  # Saves all discovered goals
+        self.unvisited_goals: List[Goal] = []  # Goals yet to be visited
+        self.current_goal: Goal = None  # Current goal being pursued
+        
+        # Robot State
         self.robot_position = None
         self.robot_orientation = None
         
         self.qos_profile = QoSProfile(
-            reliability= ReliabilityPolicy.BEST_EFFORT,
-            depth= 5
+            reliability=ReliabilityPolicy.BEST_EFFORT,
+            depth=10
         )
         
         self.declare_parameter('aruco_dict', 'DICT_ARUCO_ORIGINAL')
@@ -62,10 +65,8 @@ class RobotController(Node):
         self.create_subscription(Image, '/camera', self.monitor_callback,
                                  qos_profile=self.qos_profile)
         
-
         # Timer for control loop
         self.create_timer(0.3, self.control_loop)
-        
 
     def monitor_callback(self, msg):
         """Monitor: Process camera feed and detect markers"""
@@ -83,53 +84,48 @@ class RobotController(Node):
             self.get_logger().error(f'Error in monitor_callback: {str(e)}')
 
     def analyze_markers(self, corners, ids):
-        """Analyze: Process marker information"""
+        """Analyze: Process marker information and manage goals"""
         try:
-            for i, marker_id in enumerate(ids):
+            for i, marker_id in enumerate(ids.flatten()):
                 marker_corners = corners[i][0]
                 center = np.mean(marker_corners, axis=0)
                 
                 if marker_id == self.robot_marker_id:
+                    # Update robot position and orientation
                     self.robot_position = (center[0], center[1])
-                    # Calculate robot orientation
                     self.robot_orientation = math.atan2(
                         marker_corners[1][1] - marker_corners[0][1],
                         marker_corners[1][0] - marker_corners[0][0]
                     )
                 else:
-                    # Update or add goal position
-                    goal_exists = False
-                    for goal in self.goals:
-                        if goal.goal_id == marker_id:
-                            goal_exists = True
-                            break
+                    # Check if goal is already known
+                    goal_exists = any(goal.goal_id == marker_id for goal in self.all_goals)
                     
                     if not goal_exists:
-                        self.goals.append(Goal(
+                        # Create new goal and add to lists
+                        new_goal = Goal(
                             goal_id=marker_id,
                             position=(center[0], center[1])
-                        ))
+                        )
+                        self.all_goals.append(new_goal)
+                        self.unvisited_goals.append(new_goal)
+                        self.get_logger().info(f'New goal discovered: {marker_id}')
                         
         except Exception as e:
             self.get_logger().error(f'Error in analyze_markers: {str(e)}')
 
-    def plan_path(self) -> Goal:
-        """Plan: Determine next goal"""
-        if not self.robot_position or not self.goals:
+    def select_closest_goal(self) -> Goal:
+        """Select the closest unvisited goal"""
+        if not self.robot_position or not self.unvisited_goals:
             return None
             
-        closest_goal = None
-        min_distance = float('inf')
-        
-        for goal in self.goals:
-            if not goal.achieved:
-                distance = math.sqrt(
-                    (self.robot_position[0] - goal.position[0])**2 +
-                    (self.robot_position[1] - goal.position[1])**2
-                )
-                if distance < min_distance:
-                    min_distance = distance
-                    closest_goal = goal
+        closest_goal = min(
+            self.unvisited_goals, 
+            key=lambda goal: math.hypot(
+                self.robot_position[0] - goal.position[0],
+                self.robot_position[1] - goal.position[1]
+            )
+        )
         
         return closest_goal
 
@@ -137,16 +133,19 @@ class RobotController(Node):
         """Execute: Control robot movement"""
         if not self.robot_position or not self.robot_orientation:
             return
-            
-        target_goal = self.plan_path()
         
-        if not target_goal:
-            # All goals achieved or no goals available
+        # If no current goal, select the closest unvisited goal
+        if not self.current_goal and self.unvisited_goals:
+            self.current_goal = self.select_closest_goal()
+            self.get_logger().info(f'Pursuing goal {self.current_goal.goal_id}')
+        
+        # If no goals available or all goals visited
+        if not self.current_goal:
             self.stop_robot()
             return
             
         # Get target position
-        target_x, target_y = target_goal.position
+        target_x, target_y = self.current_goal.position
 
         # Calculate distance and angle to the target
         distance = math.hypot(target_x - self.robot_position[0],
@@ -165,9 +164,16 @@ class RobotController(Node):
         # Check if goal is achieved
         goal_tolerance = 50
         if distance < goal_tolerance:
-            target_goal.achieved = True
+            # Mark current goal as achieved and remove from unvisited goals
+            self.current_goal.achieved = True
+            self.unvisited_goals.remove(self.current_goal)
+            
+            self.get_logger().info(f'Goal {self.current_goal.goal_id} achieved!')
+            
+            # Clear current goal to trigger goal selection in next iteration
+            self.current_goal = None
+            
             self.stop_robot()
-            self.get_logger().info(f'Goal {target_goal.goal_id} achieved!')
             return
 
         # Calculate velocities with proportional control
@@ -178,17 +184,13 @@ class RobotController(Node):
         max_linear_speed = 0.5
         max_angular_speed = 1.0
 
-        if cmd_vel.linear.x > max_linear_speed:
-            cmd_vel.linear.x = max_linear_speed
-
-        if abs(cmd_vel.angular.z) > max_angular_speed:
-            cmd_vel.angular.z = max_angular_speed if cmd_vel.angular.z > 0 else -max_angular_speed
+        cmd_vel.linear.x = min(cmd_vel.linear.x, max_linear_speed)
+        cmd_vel.angular.z = max(min(cmd_vel.angular.z, max_angular_speed), -max_angular_speed)
 
         # Publish the command
         self.cmd_vel_pub.publish(cmd_vel)
 
     def stop_robot(self):
-       
         cmd_vel = Twist()
         cmd_vel.linear.x = 0.0
         cmd_vel.angular.z = 0.0
@@ -197,9 +199,10 @@ class RobotController(Node):
 
     @staticmethod
     def normalize_angle(angle):
-        
-        if angle > math.pi:
+        while angle > math.pi:
             angle -= 2 * math.pi
+        while angle < -math.pi:
+            angle += 2 * math.pi
         return angle
 
 def main():

@@ -13,7 +13,6 @@ from dataclasses import dataclass
 from typing import List, Tuple, Dict
 from rclpy.qos import qos_profile_sensor_data
 from rclpy.qos import QoSProfile, ReliabilityPolicy
-import time
 
 
 ARUCO_DICT = {
@@ -66,13 +65,6 @@ class RobotController(Node):
 
         # Timer for control loop
         self.create_timer(0.1, self.control_loop)
-        
-        # sleep callback to allow time for subscribers to connect
-        # time= 0.5
-        # self.timer = self.create_timer(time, self.sleep_callback)
-    
-    def sleep_callback(self):
-        self.get_logger().info('Sleeping for 0.5 seconds')
         
 
     def monitor_callback(self, msg):
@@ -147,6 +139,7 @@ class RobotController(Node):
             return
             
         target_goal = self.plan_path()
+        
         if not target_goal:
             # All goals achieved or no goals available
             self.stop_robot()
@@ -193,7 +186,7 @@ class RobotController(Node):
 
         # Publish the command
         self.cmd_vel_pub.publish(cmd_vel)
-                
+
     def stop_robot(self):
        
         cmd_vel = Twist()
@@ -213,7 +206,7 @@ def main():
     rclpy.init()
     controller = RobotController()
     
-    executor = MultiThreadedExecutor(num_threads=3)
+    executor = MultiThreadedExecutor(num_threads=5)
     executor.add_node(controller)
     
     try:

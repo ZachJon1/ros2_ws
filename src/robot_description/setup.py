@@ -53,6 +53,7 @@ setup(
             # 'execute_new_node = robot_description.execute_new_node:main',
             'mape_node = robot_description.mape_node:main',
             'mape_node_v2 = robot_description.mape_node_v2:main'
+            'mape_node_v3 = robot_description.mape_node_v3:main'
         ],
     },
 )
