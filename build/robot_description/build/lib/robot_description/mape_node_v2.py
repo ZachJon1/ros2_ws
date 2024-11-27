@@ -64,7 +64,7 @@ class RobotController(Node):
         
 
         # Timer for control loop
-        self.create_timer(0.1, self.control_loop)
+        self.create_timer(0.3, self.control_loop)
         
 
     def monitor_callback(self, msg):

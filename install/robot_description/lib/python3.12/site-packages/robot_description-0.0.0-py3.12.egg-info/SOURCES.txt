@@ -12,6 +12,7 @@ launch/empty_world.launch.py
 launch/mape.launch.py
 launch/mape_node.launch.py
 launch/mape_node_v2.launch.py
+launch/mape_node_v3.launch.py
 launch/mape_v3.launch.py
 launch/project.launch.py
 launch/project_world.launch.py
@@ -211,6 +212,7 @@ robot_description/mape.py
 robot_description/mape_loop.py
 robot_description/mape_node.py
 robot_description/mape_node_v2.py
+robot_description/mape_node_v3.py
 robot_description/mape_v3.py
 robot_description/monitor_new_node.py
 robot_description/monitor_node.py
