@@ -152,48 +152,46 @@ class RobotController(Node):
             self.stop_robot()
             return
             
-        # Calculate distance and angle to goal
-        dx = target_goal.position[0] - self.robot_position[0]
-        dy = target_goal.position[1] - self.robot_position[1]
-        
-        distance = math.sqrt(dx**2 + dy**2)
-        target_angle = math.atan2(dy, dx)
-        
-        # Calculate angle difference
+        # Get target position
+        target_x, target_y = target_goal.position
+
+        # Calculate distance and angle to the target
+        distance = math.hypot(target_x - self.robot_position[0],
+                            target_y - self.robot_position[1])
+        target_angle = math.atan2(target_y - self.robot_position[1],
+                                target_x - self.robot_position[0])
         angle_diff = self.normalize_angle(target_angle - self.robot_orientation)
-        
-        # Create and publish velocity command
+
+        # Proportional gain constants
+        kp_linear = 0.08
+        kp_angular = 0.3
+
+        # Initialize Twist message
         cmd_vel = Twist()
-        
-        # # dist to goal, mark as achieved
-        # if distance < 50:  
-        #     target_goal.achieved = True
-        #     self.stop_robot()
-        #     self.get_logger().info(f'Goal {target_goal.goal_id} achieved!')
-        #     return
-            
-        # # proportional control
-        # if abs(angle_diff) > 0.26:
-        #     # Rotate to face goal
-        #     cmd_vel.angular.z = 0.2 if angle_diff > 0 else -0.2
-        # else:
-        #     # Move towards goal
-        #     cmd_vel.linear.x = min(0.2, distance * 0.01)
-           
-        if distance < 50:
+
+        # Check if goal is achieved
+        goal_tolerance = 50
+        if distance < goal_tolerance:
             target_goal.achieved = True
             self.stop_robot()
             self.get_logger().info(f'Goal {target_goal.goal_id} achieved!')
             return
 
-        if abs(angle_diff) > 10:
-            # Rotate to face goal
-            cmd_vel.angular.z = 0.3 if angle_diff > 0 else -0.3
-        else:
-            # Move towards goal
-            cmd_vel.linear.x = min(0.2, distance * 0.01)
-            cmd_vel.angular.z = angle_diff
-            
+        # Calculate velocities with proportional control
+        cmd_vel.linear.x = kp_linear * distance
+        cmd_vel.angular.z = kp_angular * angle_diff
+
+        # Limit maximum velocities
+        max_linear_speed = 0.5
+        max_angular_speed = 1.0
+
+        if cmd_vel.linear.x > max_linear_speed:
+            cmd_vel.linear.x = max_linear_speed
+
+        if abs(cmd_vel.angular.z) > max_angular_speed:
+            cmd_vel.angular.z = max_angular_speed if cmd_vel.angular.z > 0 else -max_angular_speed
+
+        # Publish the command
         self.cmd_vel_pub.publish(cmd_vel)
                 
     def stop_robot(self):
@@ -215,7 +213,7 @@ def main():
     rclpy.init()
     controller = RobotController()
     
-    executor = MultiThreadedExecutor(num_threads=5)
+    executor = MultiThreadedExecutor(num_threads=3)
     executor.add_node(controller)
     
     try:

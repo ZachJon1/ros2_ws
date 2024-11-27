@@ -331,12 +331,12 @@
                 <include>
             <uri>model://marker5</uri>
             <static>true</static>
-            <pose>-1.0 1.60 0.0 0 -1.57 1.57</pose>
+            <pose>-0.62 -0.01 0.0 0 -1.57 1.57</pose>
         </include>
         <include>
             <uri>model://marker6</uri>
             <static>true</static>
-            <pose>-2.45 -1.50 0.0 0 -1.57 1.57</pose>
+            <pose>-1.84 -1.34 0.0 0 -1.57 1.57</pose>
         </include>
         <include>
             <uri>model://marker7</uri>
