@@ -1,2 +1,3 @@
 [console_scripts]
 mape_node = robot_description.mape_node:main
+mape_node_v2 = robot_description.mape_node_v2:main

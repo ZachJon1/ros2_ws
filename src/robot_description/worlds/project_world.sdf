@@ -106,7 +106,7 @@
                     </geometry>
                     <material>
                         <ambient>0.8 0.8 0.8 1</ambient>
-                        <diffuse>0.8 0.8 0.8 1</diffuse>
+                        <diffuse>0 1 0 1</diffuse>
                         <specular>0.8 0.8 0.8 1</specular>
                         <emissive>0.0 0.0 0.0 1</emissive>
                     </material>
@@ -316,7 +316,7 @@
         <include>
             <uri>model://marker2</uri>
             <static>true</static>
-            <pose>-0.34 -0.12 0.0 0 -1.57 1.57</pose>
+            <pose>-1.50 0.11 0.0 0 -1.57 1.57</pose>
         </include>
         <include>
             <uri>model://marker3</uri>

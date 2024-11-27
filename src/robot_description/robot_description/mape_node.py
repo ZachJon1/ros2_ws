@@ -12,16 +12,25 @@ import math
 from dataclasses import dataclass
 from typing import List, Tuple, Dict
 from rclpy.qos import qos_profile_sensor_data
+from rclpy.qos import QoSProfile, ReliabilityPolicy
 
 
 ARUCO_DICT = {
     "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL
 }
+
+# Dataclass for goal information
 @dataclass
 class Goal:
-    id: int
+    goal_id: int
     position: Tuple[float, float]
     achieved: bool = False
+    
+@dataclass
+class RobotState:
+    position: Tuple[float, float] = None
+    orientation: float = None
+    current_goal: Goal = None
 
 class RobotController(Node):
     def __init__(self):
@@ -33,6 +42,11 @@ class RobotController(Node):
         self.goals: List[Goal] = []
         self.robot_position = None
         self.robot_orientation = None
+        
+        self.qos_profile = QoSProfile(
+            reliability= ReliabilityPolicy.BEST_EFFORT,
+            depth= 10
+        )
         
         self.declare_parameter('aruco_dict', 'DICT_ARUCO_ORIGINAL')
         aruco_dict = self.get_parameter('aruco_dict').get_parameter_value().string_value
@@ -46,10 +60,12 @@ class RobotController(Node):
         
         # Subscribers
         self.create_subscription(Image, '/camera', self.monitor_callback,
-                                 qos_profile=qos_profile_sensor_data)
+                                 qos_profile=self.qos_profile)
         
+
         # Timer for control loop
         self.create_timer(0.1, self.control_loop)
+        
 
     def monitor_callback(self, msg):
         """Monitor: Process camera feed and detect markers"""
@@ -84,13 +100,13 @@ class RobotController(Node):
                     # Update or add goal position
                     goal_exists = False
                     for goal in self.goals:
-                        if goal.id == marker_id:
+                        if goal.goal_id == marker_id:
                             goal_exists = True
                             break
                     
                     if not goal_exists:
                         self.goals.append(Goal(
-                            id=marker_id,
+                            goal_id=marker_id,
                             position=(center[0], center[1])
                         ))
                         
@@ -145,7 +161,7 @@ class RobotController(Node):
         if distance < 50:  
             target_goal.achieved = True
             self.stop_robot()
-            self.get_logger().info(f'Goal {target_goal.id} achieved!')
+            self.get_logger().info(f'Goal {target_goal.goal_id} achieved!')
             return
             
         # Basic proportional control
@@ -179,7 +195,7 @@ def main():
     rclpy.init()
     controller = RobotController()
     
-    executor = MultiThreadedExecutor(num_threads=5)
+    executor = MultiThreadedExecutor(num_threads=3)
     executor.add_node(controller)
     
     try:
