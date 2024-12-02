@@ -13,6 +13,10 @@ launch/mape.launch.py
 launch/mape_node.launch.py
 launch/mape_node_v2.launch.py
 launch/mape_node_v3.launch.py
+launch/mape_node_v4.launch.py
+launch/mape_node_v5.launch.py
+launch/mape_node_v6.launch.py
+launch/mape_node_v7.launch.py
 launch/mape_v3.launch.py
 launch/project.launch.py
 launch/project_world.launch.py
@@ -213,6 +217,10 @@ robot_description/mape_loop.py
 robot_description/mape_node.py
 robot_description/mape_node_v2.py
 robot_description/mape_node_v3.py
+robot_description/mape_node_v4.py
+robot_description/mape_node_v5.py
+robot_description/mape_node_v6.py
+robot_description/mape_node_v7.py
 robot_description/mape_v3.py
 robot_description/monitor_new_node.py
 robot_description/monitor_node.py

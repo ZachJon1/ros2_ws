@@ -13,6 +13,8 @@ from dataclasses import dataclass, field
 from typing import List, Tuple, Dict
 from rclpy.qos import qos_profile_sensor_data
 from rclpy.qos import QoSProfile, ReliabilityPolicy
+import os
+import csv
 
 ARUCO_DICT = {
     "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL
@@ -65,8 +67,12 @@ class RobotController(Node):
         self.create_subscription(Image, '/camera', self.monitor_callback,
                                  qos_profile=self.qos_profile)
         
+        self.goals_csv_path = os.path.join(
+            os.path.expanduser('~'), 'goals.csv'
+        )
+        
         # Timer for control loop
-        self.create_timer(0.1, self.control_loop)
+        self.create_timer(5, self.control_loop)
 
     def monitor_callback(self, msg):
         """Monitor: Process camera feed and detect markers"""
@@ -97,6 +103,7 @@ class RobotController(Node):
                         marker_corners[1][1] - marker_corners[0][1],
                         marker_corners[1][0] - marker_corners[0][0]
                     )
+            
                 else:
                     # Check if goal is already known
                     goal_exists = any(goal.goal_id == marker_id for goal in self.all_goals)
@@ -141,6 +148,7 @@ class RobotController(Node):
             
             self.get_logger().info(f'Next goal: {self.current_goal.goal_id}')
             self.get_logger().info(f'Next goal position: {self.current_goal.position}')
+            self.get_logger().info(f'Robot position: {self.robot_position}')
         
         # If no goals available or all goals visited
         if not self.current_goal:
@@ -207,6 +215,34 @@ class RobotController(Node):
         while angle < -math.pi:
             angle += 2 * math.pi
         return angle
+    
+    def save_goals_to_csv(self):
+        """Save discovered goal locations to a CSV file"""
+        try:
+            # Ensure all goals have been processed
+            goals_to_save = self.all_goals
+
+            # Open the CSV file in write mode
+            with open(self.goals_csv_path, 'w', newline='') as csvfile:
+                # Create CSV writer
+                csvwriter = csv.writer(csvfile)
+                
+                # Write header
+                csvwriter.writerow(['Goal ID', 'X Position', 'Y Position', 'Achieved'])
+                
+                # Write goal data
+                for goal in goals_to_save:
+                    csvwriter.writerow([
+                        goal.goal_id, 
+                        goal.position[0], 
+                        goal.position[1], 
+                        goal.achieved
+                    ])
+            
+            self.get_logger().info(f'Goals saved to {self.goals_csv_path}')
+        
+        except Exception as e:
+            self.get_logger().error(f'Error saving goals to CSV: {str(e)}')
 
 def main():
     rclpy.init()
