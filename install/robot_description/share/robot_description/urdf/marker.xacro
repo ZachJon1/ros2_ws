@@ -7,10 +7,10 @@
     <!-- ArUco marker link -->
     <link name="${prefix}_link">
       <visual>
-        <origin xyz="0 0 0" rpy="0 -1.57 0"/>
+        <origin xyz="0 0 0" rpy="0 1.57 0"/>
         <xacro:insert_block name="origin"/>
         <geometry>
-          <mesh filename="model://marker12/meshes/Marker12.dae" scale ="0.2 0.2 0.2"/>
+          <mesh filename="model://marker12/meshes/Marker12.dae" scale ="0.3 0.3 0.3"/>
         </geometry>
       </visual>
       <collision>

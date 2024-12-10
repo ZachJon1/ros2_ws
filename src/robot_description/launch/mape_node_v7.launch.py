@@ -76,8 +76,8 @@ def generate_launch_description():
     # Mape Node 
     mape = Node(
         package="robot_description",
-        executable="mape_node_v3",
-        name="mape_node_v3",
+        executable="mape_node_v7",
+        name="mape_node_v7",
         output="screen",
         emulate_tty=True,
     )

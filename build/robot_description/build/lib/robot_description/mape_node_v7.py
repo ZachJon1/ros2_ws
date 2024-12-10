@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from rclypy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from geometry_msgs.msg import Twist, PoseStamped
 from nav_msgs.msg import Odometry
@@ -26,11 +27,6 @@ class Goal:
     position: Tuple[float, float]
     achieved: bool = False
 
-@dataclass
-class RobotState:
-    position: Tuple[float, float] = None
-    orientation: float = None
-
 class RobotController(Node):
     def __init__(self):
         super().__init__('robot_controller')
@@ -46,7 +42,10 @@ class RobotController(Node):
         
         # Robot State
         self.robot_position = None
-        self.robot_orientation = None
+        
+        # Distance tracking
+        self.last_distance = float('inf')
+        self.distance_increase_counter = 0
         
         self.qos_profile = QoSProfile(
             reliability=ReliabilityPolicy.BEST_EFFORT,
@@ -63,16 +62,18 @@ class RobotController(Node):
         # Publishers
         self.cmd_vel_pub = self.create_publisher(Twist, 'cmd_vel', 10)
         
+        timer_group = MutuallyExclusiveCallbackGroup()
+        
         # Subscribers
         self.create_subscription(Image, '/camera', self.monitor_callback,
-                                 qos_profile=self.qos_profile)
+                                 qos_profile=self.qos_profile, callback_group=timer_group)
         
         self.goals_csv_path = os.path.join(
             os.path.expanduser('~'), 'goals.csv'
         )
         
         # Timer for control loop
-        self.create_timer(5, self.control_loop)
+        self.create_timer(0.1, self.control_loop)
 
     def monitor_callback(self, msg):
         """Monitor: Process camera feed and detect markers"""
@@ -97,12 +98,8 @@ class RobotController(Node):
                 center = np.mean(marker_corners, axis=0)
                 
                 if marker_id == self.robot_marker_id:
-                    # Update robot position and orientation
+                    # Update robot position
                     self.robot_position = (center[0], center[1])
-                    self.robot_orientation = math.atan2(
-                        marker_corners[1][1] - marker_corners[0][1],
-                        marker_corners[1][0] - marker_corners[0][0]
-                    )
             
                 else:
                     # Check if goal is already known
@@ -136,38 +133,32 @@ class RobotController(Node):
         
         return closest_goal
 
-    def smart_rotate(self, current_x, current_y, target_x, target_y, current_theta):
+    def rotate_towards_goal(self, current_x, current_y, target_x, target_y):
         """
-        Determine optimal rotation direction and angular velocity to face a target point.
+        Rotate by 45 degrees each time
         """
-        # Calculate goal angle
-        dx = target_x - current_x
-        dy = target_y - current_y
-        goal_angle = math.atan2(dy, dx)
+        # 45 degrees in radians
+        rotate_angle = math.radians(80)
         
-        # Normalize angles
-        angle_diff = (goal_angle - current_theta + math.pi) % (2 * math.pi) - math.pi
+        # Proportional rotation control
+        kp_rotate = 0.8
+        max_rotate_speed = 1.0
         
-        # Proportional angular control
-        kp_angular = 0.5
-        max_angular_speed = 1.0
+        # Simple rotational velocity
+        rotate_velocity = kp_rotate * rotate_angle
         
-        # Compute angular velocity
-        angular_velocity = kp_angular * angle_diff
-        
-        # Limit angular velocity
-        angular_velocity = max(min(angular_velocity, max_angular_speed), -max_angular_speed)
-        
-        return angular_velocity
+        return max(min(rotate_velocity, max_rotate_speed), -max_rotate_speed)
 
     def control_loop(self):
-        """Execute: Control robot movement with smart rotation"""
-        if not self.robot_position or not self.robot_orientation:
+        """Execute: Control robot movement with distance-based rotation"""
+        if not self.robot_position:
             return
         
         # If no current goal, select the closest unvisited goal
         if not self.current_goal and self.unvisited_goals:
             self.current_goal = self.select_closest_goal()
+            self.last_distance = float('inf')
+            self.distance_increase_counter = 0
             self.get_logger().info(f'Pursuing goal {self.current_goal.goal_id}')
         
         # If no goals available or all goals visited
@@ -177,17 +168,16 @@ class RobotController(Node):
             
         # Get target position
         target_x, target_y = self.current_goal.position
+        current_x, current_y = self.robot_position
 
         # Calculate distance to the target
-        distance = math.hypot(target_x - self.robot_position[0],
-                            target_y - self.robot_position[1])
+        distance = math.hypot(target_x - current_x, target_y - current_y)
 
         # Initialize Twist message
         cmd_vel = Twist()
 
         # Check if goal is achieved
-        goal_tolerance = 100
-        angle_tolerance = 0.1
+        goal_tolerance = 50
 
         if distance < goal_tolerance:
             # Mark current goal as achieved and remove from unvisited goals
@@ -202,27 +192,26 @@ class RobotController(Node):
             self.stop_robot()
             return
 
-        # Compute angular velocity using smart_rotate
-        angular_velocity = self.smart_rotate(
-            self.robot_position[0], 
-            self.robot_position[1], 
-            target_x, 
-            target_y, 
-            self.robot_orientation
-        )
-
-        # Proportional linear control
-        kp_linear = 0.08
-        max_linear_speed = 0.5
-
-        # If close to facing the right direction, move forward
-        if abs(angular_velocity) < angle_tolerance:
-            cmd_vel.linear.x = min(kp_linear * distance, max_linear_speed)
-            cmd_vel.angular.z = 0.0
+        # Check if distance is increasing
+        if distance > self.last_distance:
+            self.distance_increase_counter += 1
+            self.get_logger().info(f'Distance increasing: {self.distance_increase_counter}')
         else:
-            # Rotate in place
-            cmd_vel.linear.x = 0.0
-            cmd_vel.angular.z = angular_velocity
+            self.distance_increase_counter = 0
+
+        # If distance keeps increasing, rotate
+        if self.distance_increase_counter > 3:
+            rotate_velocity = self.rotate_towards_goal(current_x, current_y, target_x, target_y)
+            cmd_vel.angular.z = rotate_velocity
+            self.get_logger().info('Rotating to realign with goal')
+        else:
+            # Simple direct movement
+            kp_linear = 0.08
+            max_linear_speed = 0.5
+            cmd_vel.linear.x = min(kp_linear * (target_x - current_x), max_linear_speed)
+
+        # Update last distance
+        self.last_distance = distance
 
         # Publish the command
         self.cmd_vel_pub.publish(cmd_vel)
@@ -233,14 +222,6 @@ class RobotController(Node):
         cmd_vel.angular.z = 0.0
         self.cmd_vel_pub.publish(cmd_vel)
         self.get_logger().info('Robot stopped')
-
-    @staticmethod
-    def normalize_angle(angle):
-        while angle > math.pi:
-            angle -= 2 * math.pi
-        while angle < -math.pi:
-            angle += 2 * math.pi
-        return angle
     
     def save_goals_to_csv(self):
         """Save discovered goal locations to a CSV file"""
@@ -274,7 +255,7 @@ def main():
     rclpy.init()
     controller = RobotController()
     
-    executor = MultiThreadedExecutor(num_threads=5)
+    executor = MultiThreadedExecutor(num_threads=2)
     executor.add_node(controller)
     
     try:
