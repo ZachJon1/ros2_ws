@@ -1,4 +1,2 @@
 [console_scripts]
-aruco_detection_pose_estimation = robot_description.aruco_detection_pose_estimation:main
-camera_subscriber = robot_description.camera_subscriber:main
-obstacle_avoidance = robot_description.obstacle_avoidance:main
+mape_node_v7 = robot_description.mape_node_v7:main

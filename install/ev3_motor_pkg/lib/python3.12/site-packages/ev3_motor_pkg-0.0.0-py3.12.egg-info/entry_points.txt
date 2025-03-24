@@ -1,0 +1,2 @@
+[console_scripts]
+motor_controller = ev3_motor_pkg.motor_controller:main

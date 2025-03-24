@@ -1,0 +1,24 @@
+[1.023s] Invoking command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/marker_detection_pkg': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/marker_detection_pkg build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/install.log --single-version-externally-managed install_data
+[1.208s] running egg_info
+[1.222s] writing ../../build/marker_detection_pkg/marker_detection_pkg.egg-info/PKG-INFO
+[1.222s] writing dependency_links to ../../build/marker_detection_pkg/marker_detection_pkg.egg-info/dependency_links.txt
+[1.222s] writing entry points to ../../build/marker_detection_pkg/marker_detection_pkg.egg-info/entry_points.txt
+[1.222s] writing requirements to ../../build/marker_detection_pkg/marker_detection_pkg.egg-info/requires.txt
+[1.222s] writing top-level names to ../../build/marker_detection_pkg/marker_detection_pkg.egg-info/top_level.txt
+[1.251s] reading manifest file '../../build/marker_detection_pkg/marker_detection_pkg.egg-info/SOURCES.txt'
+[1.252s] writing manifest file '../../build/marker_detection_pkg/marker_detection_pkg.egg-info/SOURCES.txt'
+[1.252s] running build
+[1.252s] running build_py
+[1.252s] copying marker_detection_pkg/marker_detector.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/build/lib/marker_detection_pkg
+[1.252s] running install
+[1.257s] running install_lib
+[1.271s] copying /home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/build/lib/marker_detection_pkg/marker_detector.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/python3.12/site-packages/marker_detection_pkg
+[1.272s] byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/python3.12/site-packages/marker_detection_pkg/marker_detector.py to marker_detector.cpython-312.pyc
+[1.272s] running install_data
+[1.272s] running install_egg_info
+[1.288s] removing '/home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/python3.12/site-packages/marker_detection_pkg-0.0.0-py3.12.egg-info' (and everything under it)
+[1.288s] Copying ../../build/marker_detection_pkg/marker_detection_pkg.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/python3.12/site-packages/marker_detection_pkg-0.0.0-py3.12.egg-info
+[1.288s] running install_scripts
+[1.383s] Installing marker_detector script to /home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/marker_detection_pkg
+[1.383s] writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/install.log'
+[1.415s] Invoked command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/marker_detection_pkg' returned '0': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/marker_detection_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/marker_detection_pkg build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/marker_detection_pkg/install.log --single-version-externally-managed install_data

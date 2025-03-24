@@ -1,0 +1,37 @@
+[0.855s] Invoking command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/camera_pkg': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/camera_pkg build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/install.log --single-version-externally-managed install_data
+[1.037s] running egg_info
+[1.037s] creating ../../build/camera_pkg/camera_pkg.egg-info
+[1.051s] writing ../../build/camera_pkg/camera_pkg.egg-info/PKG-INFO
+[1.051s] writing dependency_links to ../../build/camera_pkg/camera_pkg.egg-info/dependency_links.txt
+[1.051s] writing entry points to ../../build/camera_pkg/camera_pkg.egg-info/entry_points.txt
+[1.051s] writing requirements to ../../build/camera_pkg/camera_pkg.egg-info/requires.txt
+[1.051s] writing top-level names to ../../build/camera_pkg/camera_pkg.egg-info/top_level.txt
+[1.051s] writing manifest file '../../build/camera_pkg/camera_pkg.egg-info/SOURCES.txt'
+[1.079s] reading manifest file '../../build/camera_pkg/camera_pkg.egg-info/SOURCES.txt'
+[1.079s] writing manifest file '../../build/camera_pkg/camera_pkg.egg-info/SOURCES.txt'
+[1.079s] running build
+[1.080s] running build_py
+[1.080s] creating /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build
+[1.080s] creating /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build/lib
+[1.080s] creating /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build/lib/camera_pkg
+[1.080s] copying camera_pkg/__init__.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build/lib/camera_pkg
+[1.080s] copying camera_pkg/camera_node.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build/lib/camera_pkg
+[1.080s] running install
+[1.084s] running install_lib
+[1.098s] creating /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages/camera_pkg
+[1.098s] copying /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build/lib/camera_pkg/__init__.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages/camera_pkg
+[1.098s] copying /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build/lib/camera_pkg/camera_node.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages/camera_pkg
+[1.099s] byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages/camera_pkg/__init__.py to __init__.cpython-312.pyc
+[1.099s] byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages/camera_pkg/camera_node.py to camera_node.cpython-312.pyc
+[1.099s] running install_data
+[1.099s] creating /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/share/ament_index
+[1.099s] creating /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/share/ament_index/resource_index
+[1.099s] creating /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/share/ament_index/resource_index/packages
+[1.099s] copying resource/camera_pkg -> /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/share/ament_index/resource_index/packages
+[1.099s] copying package.xml -> /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/share/camera_pkg
+[1.099s] running install_egg_info
+[1.114s] Copying ../../build/camera_pkg/camera_pkg.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages/camera_pkg-0.0.0-py3.12.egg-info
+[1.115s] running install_scripts
+[1.207s] Installing camera_node script to /home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/camera_pkg
+[1.207s] writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/install.log'
+[1.228s] Invoked command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/camera_pkg' returned '0': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/camera_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/camera_pkg build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/camera_pkg/install.log --single-version-externally-managed install_data

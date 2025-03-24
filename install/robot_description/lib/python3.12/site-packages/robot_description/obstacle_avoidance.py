@@ -55,7 +55,7 @@ class ObstacleAvoidance(Node):
         self.get_logger().info("Initialized Timer")
 
         # wait for gazebo gui to launch and display the world
-        time.sleep(10.0)
+        #time.sleep(10.0)
 
         self.get_logger().info("Starting Obstacle Avoidance...")
 

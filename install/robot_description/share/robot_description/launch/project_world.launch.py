@@ -6,6 +6,7 @@ from launch.substitutions import (PathJoinSubstitution, LaunchConfiguration)
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import SetParameter
 
+
 # ROS2 Launch System will look for this function definition #
 def generate_launch_description():
 
@@ -47,7 +48,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             declare_world_arg,
-            # Sets use_sim_time for all nodes started below (doesn't work for nodes started from ignition gazebo) #
+            # Sets use_sim_time for all nodes started below 
             SetParameter(name="use_sim_time", value=True),
             gz_sim,
         ]

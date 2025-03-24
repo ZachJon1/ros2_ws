@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info
+writing ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/dependency_links.txt
+writing entry points to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/entry_points.txt
+writing requirements to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/requires.txt
+writing top-level names to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/top_level.txt
+writing manifest file '../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/SOURCES.txt'
+reading manifest file '../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build
+creating /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build/lib
+creating /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build/lib/ev3_motor_pkg
+copying ev3_motor_pkg/motor_controller.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build/lib/ev3_motor_pkg
+copying ev3_motor_pkg/__init__.py -> /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build/lib/ev3_motor_pkg
+running install
+running install_lib
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg
+copying /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build/lib/ev3_motor_pkg/motor_controller.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg
+copying /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build/lib/ev3_motor_pkg/__init__.py -> /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg
+byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg/motor_controller.py to motor_controller.cpython-312.pyc
+byte-compiling /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/share/ament_index
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/share/ament_index/resource_index
+creating /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/share/ament_index/resource_index/packages
+copying resource/ev3_motor_pkg -> /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/share/ev3_motor_pkg
+running install_egg_info
+Copying ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg-0.0.0-py3.12.egg-info
+running install_scripts
+Installing motor_controller script to /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/ev3_motor_pkg
+writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/install.log'

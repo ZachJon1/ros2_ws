@@ -1,0 +1,5 @@
+  File "/home/azakaria/Documents/sim_v2/ros2_ws/install/robot_description/lib/python3.12/site-packages/robot_description/mape_node_v2.py", line 170
+    cmd_vel.angular.z = abs(target_angle) if angle_diff >  else -(target_angle)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression
+

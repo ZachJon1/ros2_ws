@@ -1,7 +1,7 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, ExecuteProcess
 from launch.substitutions import (Command, LaunchConfiguration)
 from launch_ros.actions import (Node, SetParameter)
 
@@ -68,7 +68,7 @@ def generate_launch_description():
             "/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo",
         ],
         remappings=[
-            # there are no remappings for this robot description
+
         ],
         output="screen",
     )
@@ -83,6 +83,16 @@ def generate_launch_description():
     #     emulate_tty=True,
     # )
     
+    # Obstacle Avoidance
+    
+    obstacle_avoidance = Node(
+        package="robot_description",
+        executable="obstacle_avoidance",
+        name="obstacle_avoidance",
+        output="screen",
+        emulate_tty=True
+    )
+    
     aruco_node = Node(
         package="robot_description",
         executable="aruco_detection_pose_estimation",
@@ -96,6 +106,7 @@ def generate_launch_description():
         [
             # Sets use_sim_time for all nodes started below (doesn't work for nodes started from ignition gazebo) #
             SetParameter(name="use_sim_time", value=True),
+            # marker_gen,
             robot_state_publisher_node,
             declare_spawn_model_name,
             declare_spawn_x,
@@ -103,6 +114,7 @@ def generate_launch_description():
             declare_spawn_z,
             gz_spawn_entity,
             ign_bridge,
+            obstacle_avoidance,
             # camera_subscriber,
             aruco_node
         ]

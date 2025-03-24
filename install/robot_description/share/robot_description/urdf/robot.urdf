@@ -362,13 +362,14 @@
         <plugin 
             filename="libignition-gazebo-diff-drive-system.so"
             name="ignition::gazebo::systems::DiffDrive">
+            <!-- <robotNamespace>/robot</robotNamespace> -->
             <left_joint>joint_chassis_left_wheel</left_joint>
             <right_joint>joint_chassis_right_wheel</right_joint>
             <wheel_separation>0.315</wheel_separation>
             <wheel_radius>0.03</wheel_radius>
             <odom_publish_frequency>10</odom_publish_frequency>
-            <topic>cmd_vel</topic>
-            <odom_topic>odom</odom_topic>
+            <topic>/cmd_vel</topic>
+            <odom_topic>/odom</odom_topic>
             <tf_topic>tf</tf_topic>
             <frame_id>odom</frame_id>
             <child_frame_id>base_link</child_frame_id>
@@ -380,7 +381,8 @@
         <plugin
             filename="libignition-gazebo-sensors-system.so"
             name="ignition::gazebo::systems::Sensors">
-            <render_engine>ogre</render_engine> <!-- use ogre2 if ogre v2.x is installed -->
+            <render_engine>ogre</render_engine> 
+            
         </plugin>
     </gazebo>
     <gazebo reference="link_laser_scan">

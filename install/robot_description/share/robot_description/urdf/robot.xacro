@@ -3,11 +3,18 @@
 <robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:include filename="$(find robot_description)/urdf/robot.gazebo" />
+    <xacro:include filename="$(find robot_description)/urdf/marker.xacro" />
 
     <!-- Link - base_link -->
     <link name="base_link"></link>
+    
+    <!-- place marker on robot-->
+    <xacro:marker prefix="marker12" parent="link_chassis">
+        <origin xyz="0 0 0.07" rpy= "0 0 0"/>
+    </xacro:marker>
 
-    <!-- Joint - base_link/chassis -->
+
+<!-- Joint - base_link/chassis -->
     <joint name="joint_base_link_chassis" type="fixed">
         <origin rpy="0 0 0" xyz="0 0 0" />
         <child link="link_chassis" />
