@@ -1,0 +1,21 @@
+[1.029s] Invoking command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/ev3_motor_pkg': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/ev3_motor_pkg build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/install.log --single-version-externally-managed install_data
+[1.219s] running egg_info
+[1.234s] writing ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/PKG-INFO
+[1.235s] writing dependency_links to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/dependency_links.txt
+[1.235s] writing entry points to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/entry_points.txt
+[1.235s] writing requirements to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/requires.txt
+[1.235s] writing top-level names to ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/top_level.txt
+[1.265s] reading manifest file '../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/SOURCES.txt'
+[1.265s] writing manifest file '../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info/SOURCES.txt'
+[1.265s] running build
+[1.265s] running build_py
+[1.265s] running install
+[1.270s] running install_lib
+[1.285s] running install_data
+[1.285s] running install_egg_info
+[1.301s] removing '/home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg-0.0.0-py3.12.egg-info' (and everything under it)
+[1.301s] Copying ../../build/ev3_motor_pkg/ev3_motor_pkg.egg-info to /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages/ev3_motor_pkg-0.0.0-py3.12.egg-info
+[1.302s] running install_scripts
+[1.399s] Installing motor_controller script to /home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/ev3_motor_pkg
+[1.399s] writing list of installed files to '/home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/install.log'
+[1.431s] Invoked command in '/home/azakaria/Documents/sim_v2/ros2_ws/src/ev3_motor_pkg' returned '0': CONDA_PROMPT_MODIFIER=(base) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/azakaria/Documents/sim_v2/ros2_ws/install/ev3_motor_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/ev3_motor_pkg build --build-base /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/build install --record /home/azakaria/Documents/sim_v2/ros2_ws/build/ev3_motor_pkg/install.log --single-version-externally-managed install_data
